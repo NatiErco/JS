@@ -1,0 +1,46 @@
+ <!-- Obtenga el valor del form-inputcampo de entrada de texto e imprímalo en la consola.
+
+Utilice classcomo selector.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 2</title>
+</head>
+<body>
+    
+    <div id="container">
+        <form>
+          <div>
+            <label>First Name:</label>
+            <input type="text" class="form-input" id="firstName" value="Mario" />
+          </div>
+          <div>
+            <label>Last Name:</label>
+            <input type="text" class="form-input" id="lastName" value="Rossi" />
+          </div>
+          <div>
+            <label>Age:</label>
+            <input type="number" class="form-input" id="age" value="25" />
+          </div>
+        </form>
+      </div>
+    </body>
+ 
+  
+  <script>
+    
+    // Obtener todos los elementos con la clase 'form-input'
+  const formInputs = document.querySelectorAll('.form-input');
+  
+  // Iterar sobre cada elemento y imprimir su valor en la consola
+  formInputs.forEach(input => {
+    console.log(input.value);
+  });
+
+  </script>
+  </html>

@@ -1,0 +1,49 @@
+
+<!-- (DOM)  es un Modelo de objetos de documento en el desarrollo web.
+El DOM es una API que permite a los desarrolladores interactuar y manipular documentos HTML utilizando JavaScript. 
+Representa la estructura de una página web como un árbol de nodos, donde cada nodo es un elemento HTML. 
+
+Ejercicio: Obtenga el valor del firstNamecampo de entrada de texto e imprímalo en la consola.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <body>
+        <div id="container">
+          <form>
+            <div>
+              <label>First Name:</label>
+              <input type="text" class="form-input" id="firstName" value="Mario" />
+            </div>
+            <div>
+              <label>Last Name:</label>
+              <input type="text" class="form-input" id="lastName" value="Rossi" />
+            </div>
+            <div>
+              <label>Age:</label>
+              <input type="number" class="form-input" id="age" value="25" />
+            </div>
+          </form>
+        </div>  
+</body>
+
+<script>
+
+// Obtener el elemento de entrada de texto por su id 
+
+const firstNameInput = document.getElementById('firstName');
+
+// Obtener el valor del campo de entrada de texto
+
+const firstNameValue = firstNameInput.value;
+
+// Imprimir el valor en la consola
+
+console.log(firstNameValue);
+</script>
+</html>

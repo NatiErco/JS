@@ -1,0 +1,66 @@
+<!-- Obtenga el valor de todos los campos inputy label .
+
+La salida en la consola debe ser:
+
+First Name: Mario
+Last Name: Rossi
+Age: 25 -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM 3</title>
+  </head>
+  <body>
+    <div id="container">
+      <form>
+        <div>
+          <label>First Name:</label>
+          <input type="text" class="form-input" id="firstName" value="Mario" />
+        </div>
+        <div>
+          <label>Last Name:</label>
+          <input type="text" class="form-input" id="lastName" value="Rossi" />
+        </div>
+        <div>
+          <label>Age:</label>
+          <input type="number" class="form-input" id="age" value="25" />
+        </div>
+      </form>
+    </div>
+  </body>
+
+  <script>
+    
+    // document.getElementById("myForm").addEventListener("submit", function (event) {
+    //     event.preventDefault(); // Prevenir el envío del formulario
+
+    //     const labels = document.querySelectorAll("label");
+    //     const inputs = document.querySelectorAll(".form-input");
+    //     let output = "";
+
+    //     labels.forEach((label, index) => {
+    //       const input = inputs[index];
+    //       output += `${label.textContent.trim()} ${input.value}\n`;
+    //     });
+
+    //     console.log(output.trim());
+    //   });
+
+     // Utiliza document.querySelectorAll() para seleccionar todos los elementos <div> que están dentro de un formulario (<form>) y dentro del elemento con el ID "container".
+    const divElements = document.querySelectorAll('#container form div');
+
+    // Se utiliza forEach() para iterar sobre cada elemento <div> seleccionado anteriormente.
+
+    divElements.forEach(div => {
+      const label = div.querySelector('label').innerText; // div.querySelector('label') selecciona el primer elemento <label> que se encuentre dentro del <div> actual.
+      const input = div.querySelector('input').value; // div.querySelector('input') selecciona el primer elemento <input> que se encuentre dentro del <div> actual.
+      console.log(`${label} ${input}`);
+    });
+
+    // En resumen, este código selecciona todos los elementos <div> dentro de un formulario que está dentro de un contenedor específico, luego itera sobre cada uno de estos elementos para obtener y mostrar en la consola el texto de la etiqueta y el valor del campo de entrada que están dentro de cada <div>.
+
+  </script>
+</html>
