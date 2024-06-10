@@ -1,0 +1,53 @@
+<!-- A partir del ejercicio llamado 'Solicitudes de red - Lista de tareas pendientes', cree dinámicamente una lista de elementos <li>que contengan el título de tareas pendientes (propiedad de título en la colección de objetos devueltos por la respuesta) y agréguela al elemento '.todo-list'. NB: El cuerpo de la respuesta contiene la lista Todos en formato Json, utilice el método .json presente en la respuesta para realizar la deserialización -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <div id="Container">
+      <ul class="todo-list">
+        <li> TodoList</li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    
+    // Se define una constante url que contiene la dirección de la API que se va a utilizar para obtener la lista de tareas.
+
+    const url = "https://jsonplaceholder.typicode.com/todos";
+
+    // Se define una función asíncrona fetchTodo que será la responsable de realizar la solicitud y manejar la respuesta.
+
+    async function fetchTodo() {
+      try {
+        const response = await fetch(url); // Utilizamos fetch para realizar una solicitud HTTP a la URL especificada. La palabra clave await indica que JavaScript debe esperar hasta que la solicitud se complete antes de continuar con la ejecución de la función.
+
+        // Verifica si la respuesta es correcta, si no lo es, lanza el siguiente error:
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        // La respuesta se convierte en formato JSON usando el método response.json(). Esto también es una operación asíncrona, por lo que se usa await.
+        const todo = await response.json();
+
+        console.log(todo); // Muestra por consolta los datos.
+
+        //elecciona el elemento con la clase todo-list.
+        const todoList = document.querySelector(".todo-list");
+
+        todo.forEach((todo) => {
+          const li = document.createElement("li");
+          li.textContent = todo.title;
+          todoList.appendChild(li);
+        });
+      } catch (error) {
+        console.log(error); // Si ocurre algún error en el bloque try, se captura y se imprime en la consola.
+      }
+    }
+
+    fetchTodo();
+  </script>
+</html>
